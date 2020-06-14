@@ -7,6 +7,15 @@
 #include <string.h>
 #include <stdint.h>
 
+/*
+ * Assumption:
+ * The hashmap structs are set in stone with the given test sample. This implies:
+ * 	--> Data is null terminated (as no data_size is present in the Bucket)
+ * 		--> strlen can be used to find the size of this data blob, with a +1 for the NULL termination char
+ * 	--> key is null terminated (as no key_size is present in the Bucket)
+ *	 	--> strlen can be used to find the size of the key, with a +1 for the NULL termination char
+ */
+
 typedef struct Bucket {
 	struct Bucket * next;
 	char * key;
